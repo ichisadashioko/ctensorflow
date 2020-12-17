@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1
+
+    - name: Build
+      run: msbuild ctensorflow.sln
+
+    - name: Show build directory structure
+      run: tree . /a /f
+
+    - name: upload artifacts
+      uses: actions/upload-artifact@v2.2.0
+      with:
+        name: ctensorflow-binaries
+        path: x64/Debug/*.[(exe)|(pdb)]
