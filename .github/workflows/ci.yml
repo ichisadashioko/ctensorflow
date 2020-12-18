@@ -28,4 +28,6 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: ctensorflow-binaries
-        path: x64/Debug/*.[(exe),(pdb)]
+        path: |
+          x64/Debug/ctensorflow.exe
+          x64/Debug/ctensorflow.pdb
