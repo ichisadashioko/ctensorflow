@@ -48,9 +48,8 @@
     </Link>
     <CustomBuildStep>
       <Command>xcopy /y /d "$(MSBuildStartupDirectory)\dependencies\lib\*.dll" "$(OutDir)"</Command>
-    </CustomBuildStep>
-    <CustomBuildStep>
       <Message>copy DLLs to the output directory</Message>
+      <Outputs>Done copying DLLs;%(Outputs)</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
