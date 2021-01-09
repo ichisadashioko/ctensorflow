@@ -18,6 +18,9 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1
 
+    - name: Download dependencies
+      run: python download_libraries.py
+
     - name: Build
       run: msbuild ctensorflow.sln
 
@@ -31,3 +34,4 @@ jobs:
         path: |
           x64/Debug/ctensorflow.exe
           x64/Debug/ctensorflow.pdb
+          x64/Debug/tensorflow.dll

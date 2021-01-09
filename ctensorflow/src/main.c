@@ -1,7 +1,10 @@
 #include <stdio.h>
 
+#include <tensorflow/c/c_api.h>
+#pragma comment(lib, "tensorflow.lib")
+
 int main()
 {
-	printf("Hello!\n");
+	printf("Hello from TensorFlow C library version %s\n", TF_Version());
 	return 0;
 }
