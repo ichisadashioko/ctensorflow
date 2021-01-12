@@ -31,8 +31,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(MSBuildStartupDirectory)\dependencies\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(MSBuildStartupDirectory)\dependencies\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)dependencies\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)dependencies\lib;$(LibraryPath)</LibraryPath>
     <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -47,7 +47,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <CustomBuildStep>
-      <Command>xcopy /y /d "$(MSBuildStartupDirectory)\dependencies\lib\*.dll" "$(OutDir)"</Command>
+      <Command>xcopy /y /d "$(SolutionDir)dependencies\lib\*.dll" "$(OutDir)"
+xcopy /y /d "$(SolutionDir)dependencies\tensorflow_inception_graph.pb" "$(OutDir)"</Command>
       <Message>copy DLLs to the output directory</Message>
       <Outputs>Done copying DLLs;%(Outputs)</Outputs>
     </CustomBuildStep>
