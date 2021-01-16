@@ -47,10 +47,11 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <CustomBuildStep>
-      <Command>xcopy /y /d "$(SolutionDir)dependencies\lib\*.dll" "$(OutDir)"
-xcopy /y /d "$(SolutionDir)dependencies\tensorflow_inception_graph.pb" "$(OutDir)"</Command>
-      <Message>copy DLLs to the output directory</Message>
-      <Outputs>Done copying DLLs;%(Outputs)</Outputs>
+      <Command>xcopy /y /d "$(SolutionDir)dependencies\lib\tensorflow.dll" "$(OutDir)"
+robocopy /e "$(SolutionDir)dependencies\etl9b.model.tensorflow.savedmodel" "$(OutDir)etl9b.model.tensorflow.savedmodel"</Command>
+      <Message>Copying DLLs and assets</Message>
+      <Outputs>done;%(Outputs)</Outputs>
+      <IgnoreExitCode>true</IgnoreExitCode>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

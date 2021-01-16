@@ -342,3 +342,7 @@ healthchecksdb
 dependencies
 .ipynb_checkpoints
 *note*
+*.savedmodel
+*.zip
+*.md5
+*.sha256
