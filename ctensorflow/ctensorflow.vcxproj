@@ -46,13 +46,6 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <CustomBuildStep>
-      <Command>xcopy /y /d "$(SolutionDir)dependencies\lib\tensorflow.dll" "$(OutDir)"
-robocopy /e "$(SolutionDir)dependencies\etl9b.model.tensorflow.savedmodel" "$(OutDir)etl9b.model.tensorflow.savedmodel"</Command>
-      <Message>Copying DLLs and assets</Message>
-      <Outputs>done;%(Outputs)</Outputs>
-      <IgnoreExitCode>true</IgnoreExitCode>
-    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.c" />
